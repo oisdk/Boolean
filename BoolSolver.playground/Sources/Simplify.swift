@@ -29,14 +29,14 @@ extension Expr {
   public init(_ s: String) { self = .Var(s) }
 }
 
-
-
 extension Expr {
   public var simplified: Expr {
     switch self {
     case .Const, .Var: return self
     case let .NOT(x):
       switch x.simplified {
+      case let .AND(.NOT(a),.NOT(b)): return Expr.OR (a,b).simplified
+      case let .OR (.NOT(a),.NOT(b)): return Expr.AND(a,b).simplified
       case let .NOT(y): return y
       case let .Const(y): return .Const(!y)
       case let y: return .NOT(y)
