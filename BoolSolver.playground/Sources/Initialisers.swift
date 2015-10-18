@@ -25,3 +25,6 @@ public func &&(lhs: Expr, rhs: Expr) -> Expr {
 public func ||(lhs: Expr, rhs: Expr) -> Expr {
   return Expr(lhs, OR: rhs)
 }
+public func ^ (lhs: Expr, rhs: Expr) -> Expr {
+  return Expr(lhs, XOR: rhs)
+}

@@ -20,21 +20,21 @@ extension Expr : CustomStringConvertible {
   public var description: String {
     switch self {
     case let .OR(.AND(a,.NOT(b)),.AND(.NOT(c),d)) where a == c && b == d:
-      return (a.isBin ? "(" + a.description + ")" : a.description) +
-        " ⊻ " +
-        (b.isBin ? "(" + b.description + ")" : b.description)
+      let lhs = a.isBin ? "(" + a.description + ")" : a.description
+      let rhs = b.isBin ? "(" + b.description + ")" : b.description
+      return lhs + " ⊻ " + rhs
     case let .OR(.AND(a,.NOT(b)),.AND(c,.NOT(d))) where a == d && b == c:
-      return (a.isBin ? "(" + a.description + ")" : a.description) +
-        " ⊻ " +
-        (b.isBin ? "(" + b.description + ")" : b.description)
+      let lhs = a.isBin ? "(" + a.description + ")" : a.description
+      let rhs = b.isBin ? "(" + b.description + ")" : b.description
+      return lhs + " ⊻ " + rhs
     case let .OR(.AND(.NOT(a),b),.AND(c,.NOT(d))) where a == c && b == d:
-      return (a.isBin ? "(" + a.description + ")" : a.description) +
-        " ⊻ " +
-        (b.isBin ? "(" + b.description + ")" : b.description)
+      let lhs = a.isBin ? "(" + a.description + ")" : a.description
+      let rhs = b.isBin ? "(" + b.description + ")" : b.description
+      return lhs + " ⊻ " + rhs
     case let .AND(.OR(a,b),.OR(.NOT(c),.NOT(d))) where a == c && b == d || a == d && b == c:
-      return (a.isBin ? "(" + a.description + ")" : a.description) +
-        " ⊻ " +
-        (b.isBin ? "(" + b.description + ")" : b.description)
+      let lhs = a.isBin ? "(" + a.description + ")" : a.description
+      let rhs = b.isBin ? "(" + b.description + ")" : b.description
+      return lhs + " ⊻ " + rhs
     case let .NOT(x): return "¬" + (x.isBin ? "(" + x.description + ")" : x.description)
     case let .Const(x): return x ? "1" : "0"
     case let .AND(a,b):
