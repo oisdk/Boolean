@@ -111,14 +111,14 @@ extension Expr : CustomStringConvertible {
   public var description: String {
     switch self {
     case let .Const(b): return b ? "1" : "0"
-    case let .NOT (e) : return "¬" + e.description
-    case let AND (a,b): return "(" + a.description + "∧" + b.description + ")"
-    case let OR  (a,b): return "(" + a.description + "∨" + b.description + ")"
-    case let NAND(a,b): return "(" + a.description + "⊼" + b.description + ")"
-    case let NOR (a,b): return "(" + a.description + "⊽" + b.description + ")"
-    case let XOR (a,b): return "(" + a.description + "⊻" + b.description + ")"
-    case let XNOR(a,b): return "¬(" + a.description + "⊻" + b.description + ")"
-    case let .Var(s): return s
+    case let .NOT (e) : return "¬"  + e.description
+    case let AND (a,b): return "("  + a.description + " ∧ " + b.description + ")"
+    case let OR  (a,b): return "("  + a.description + " ∨ " + b.description + ")"
+    case let NAND(a,b): return "("  + a.description + " ⊼ " + b.description + ")"
+    case let NOR (a,b): return "("  + a.description + " ⊽ " + b.description + ")"
+    case let XOR (a,b): return "("  + a.description + " ⊻ " + b.description + ")"
+    case let XNOR(a,b): return "¬(" + a.description + " ⊻ " + b.description + ")"
+    case let .Var(s)  : return s
     }
   }
 }

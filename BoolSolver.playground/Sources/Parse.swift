@@ -38,7 +38,8 @@ extension String.CharacterView {
             return .Some(fExp)
           }
           return b[i].opEquiv.flatMap { op in
-            b.suffixFrom(i.successor()).asExp.map {
+            if i == self.endIndex { return .Error(.UnBal(String(self))) }
+            return b.suffixFrom(i.successor()).asExp.map {
               bExp in op(fExp,bExp)
             }
           }
@@ -46,16 +47,17 @@ extension String.CharacterView {
       }
     default:
       for i in indices {
-        if let op = self[i].opEquiv {
-          return prefixUpTo(i).asExp.flatMap { fExp in
-            self.suffixFrom(i.successor()).asExp.map { bExp in
-              op(fExp,bExp)
-            }
-          }
-        }
+        if let op = self[i].opEquiv { return opAt(i, op: op) }
       }
       return .Some(Expr.Var(String(self)))
     }
-    
+  }
+  private func opAt(i: Index, op: (Expr,Expr) -> Expr) -> Result<Expr,ParseError> {
+    return prefixUpTo(i).asExp.flatMap { fExp in
+      if i == self.endIndex { return .Error(.UnBal(String(self))) }
+      return self.suffixFrom(i.successor()).asExp.map { bExp in
+        op(fExp,bExp)
+      }
+    }
   }
 }
