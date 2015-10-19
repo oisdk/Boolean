@@ -1,30 +1,33 @@
 extension Expr: BooleanLiteralConvertible {
   public init(booleanLiteral value: Bool) {
-    self.init(value)
+    self = .Const(value)
   }
 }
 
 extension Expr: StringLiteralConvertible {
   public init(extendedGraphemeClusterLiteral value: String) {
-    self.init(value)
+    self = .Var(value)
   }
   public init(stringLiteral value: String) {
-    self.init(value)
+    self = .Var(value)
   }
   public init(unicodeScalarLiteral value: String) {
-    self.init(value)
+    self = .Var(value)
   }
 }
 
 public prefix func !(b: Expr) -> Expr {
-  return Expr(NOT: b)
+  return Expr.NOT(b).simplified
 }
+
 public func &&(lhs: Expr, rhs: Expr) -> Expr {
-  return Expr(lhs, AND: rhs)
+  return Expr.AND(lhs, rhs).simplified
 }
+
 public func ||(lhs: Expr, rhs: Expr) -> Expr {
-  return Expr(lhs, OR: rhs)
+  return Expr.OR(lhs, rhs).simplified
 }
+
 public func ^ (lhs: Expr, rhs: Expr) -> Expr {
-  return Expr(lhs, XOR: rhs)
+  return lhs && !rhs || !lhs && rhs
 }
