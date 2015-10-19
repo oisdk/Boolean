@@ -8,22 +8,17 @@ extension Expr {
     case let .NOT(a  ): return a.allVars
     }
   }
-  public var asBool: Bool? {
-    guard case let .Const(x) = self else { return nil }
-    return x
-  }
 }
 
-func powerSet(var s: Set<String>) -> [[String:Bool]] {
+func inserted<K : Hashable,V>(k: K, _ v: V)(var d: [K:V]) -> [K:V] {
+  d[k] = v
+  return d
+}
+
+func powerSet(var s: Set<String>) -> [[String:Expr]] {
   guard let x = s.popFirst() else { return [[:]] }
   let rest = powerSet(s)
-  return rest.map { (var d) in
-    d[x] = true
-    return d
-  } + rest.map { (var d) in
-    d[x] = false
-    return d
-  }
+  return rest.map(inserted(x, true)) + rest.map(inserted(x, false))
 }
 
 extension Expr {
@@ -33,9 +28,9 @@ extension Expr {
     powerSet(names).map { vars in
       let lhs = vars
         .sort {(a,b) in a.0 < b.0}
-        .map { (_,b) in b ? "1" : "0" }
+        .map  {(_,b) in b.description }
         .joinWithSeparator(" | ")
-      let rhs = solve(vars).simplified.asBool! ? "1" : "0"
+      let rhs = solve(vars).description
       return lhs + " | " + rhs
     }.sort().joinWithSeparator("\n")
   }

@@ -31,3 +31,21 @@ public func ||(lhs: Expr, rhs: Expr) -> Expr {
 public func ^ (lhs: Expr, rhs: Expr) -> Expr {
   return lhs && !rhs || !lhs && rhs
 }
+
+infix operator !& { associativity left precedence 120 }
+
+public func !&(lhs: Expr, rhs: Expr) -> Expr {
+  return !(lhs && rhs)
+}
+
+infix operator !| { associativity left precedence 115 }
+
+public func !|(lhs: Expr, rhs: Expr) -> Expr {
+  return !(lhs || rhs)
+}
+
+infix operator !^ { associativity left precedence 115 }
+
+public func !^(lhs: Expr, rhs: Expr) -> Expr {
+  return !(lhs ^ rhs)
+}
