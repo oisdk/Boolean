@@ -1,5 +1,3 @@
-import Control.Applicative hiding (Const)
-import Data.List
 import qualified Data.Set as S
 import qualified Data.Map.Strict as M
 import Data.Maybe
@@ -46,52 +44,47 @@ minTerms = powerSet . allVars
 minTermsTrue :: Expr -> S.Set (M.Map Char Bool)
 minTermsTrue e = S.filter (subInSet e) (minTerms e)
 
-data TermCond = T | F | N deriving (Eq, Show, Ord)
-
-fromBool :: Bool -> TermCond
-fromBool True  = T
-fromBool False = F
-
 mapMaybeSet :: Ord b => (a -> Maybe b) -> S.Set a -> S.Set b
 mapMaybeSet f = (S.map fromJust) . (S.filter isJust) . (S.map f)
 
-tryInsert :: S.Set (M.Map Char TermCond) -> M.Map Char TermCond -> S.Set (M.Map Char TermCond)
+tryInsert :: S.Set (M.Map Char Bool) -> M.Map Char Bool -> S.Set (M.Map Char Bool)
 tryInsert l o | S.null inserted = S.singleton o
-              | otherwise = inserted
+              | otherwise       = inserted
   where inserted = mapMaybeSet ifTry l
-        ifTry b | M.size diff == 1 = Just (M.union diff o)
+        ifTry b | M.size diff == 1 = Just (M.difference o diff)
                 | otherwise        = Nothing
-                where diff = M.differenceWith (\x y -> if x == y then Nothing else Just N) o b
+                where diff = symDiff const o b
 
-minOnce :: S.Set (M.Map Char TermCond) -> S.Set (M.Map Char TermCond)
+minOnce :: S.Set (M.Map Char Bool) -> S.Set (M.Map Char Bool)
 minOnce l = S.foldr S.union S.empty (S.map (tryInsert l) l)
 
 converge :: Eq a => (a -> a) -> a -> a
 converge f x | x == y    = y
              | otherwise = converge f y
              where y = f x
+             
+uncons :: [a] -> Maybe (a,[a])
+uncons []     = Nothing
+uncons (x:xs) = Just (x,xs)
 
-mapMaybeMap :: (a -> Maybe b) -> M.Map c a -> M.Map c b
-mapMaybeMap f = (M.map fromJust) . (M.filter isJust) . (M.map f)
-
-toBool :: TermCond -> Maybe Bool
-toBool T = Just True
-toBool F = Just False
-toBool N = Nothing
+symDiff :: Eq b => Ord a => (b -> b -> b) -> (M.Map a b) -> (M.Map a b) -> (M.Map a b)
+symDiff f = M.mergeWithKey nilIfSame id id
+  where nilIfSame _ x y | x == y    = Nothing
+                        | otherwise = Just (f x y)
 
 primeImpl :: Expr -> S.Set (M.Map Char Bool)
-primeImpl = S.map (mapMaybeMap toBool) . 
-            converge minOnce           . 
-            S.map (M.map fromBool)     . 
-            minTermsTrue
+primeImpl = converge minOnce . minTermsTrue
             
 toExpr :: (Char,Bool) -> Expr
 toExpr (c,True ) = Var c
 toExpr (c,False) = NOT (Var c)
 
 toAnd :: (M.Map Char Bool) -> Expr
-toAnd m | M.null m  = Const True
-        | otherwise = (foldr1 AND . map toExpr . M.toList) m
+toAnd = fromMaybe (Const True)     . 
+        fmap (uncurry (foldr AND)) . 
+        uncons                     . 
+        map toExpr                 . 
+        M.toList
 
 toOr :: S.Set (M.Map Char Bool) -> Expr
 toOr s | S.null s = Const False
@@ -99,5 +92,5 @@ toOr s | S.null s = Const False
        where (h,t) = S.deleteFindMin (S.map toAnd s)
 
 simplified :: Expr -> Expr
-simplified = converge (toOr . primeImpl)
+simplified = toOr . primeImpl
 

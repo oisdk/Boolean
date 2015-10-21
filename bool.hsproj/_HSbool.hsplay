@@ -5,3 +5,11 @@ let c = Var 'C'
 let d = Var 'D'
 
 simplified $ (a `OR` c) `AND` ((a `AND` d) `OR` (a `AND` NOT d)) `OR` (a `AND` c) `OR` c
+
+
+let x = M.fromList [(1,'a'), (2,'b')]
+
+let y = M.fromList [(2,'d'), (3,'c')]
+
+symDiff (\f g -> g) x y
+
