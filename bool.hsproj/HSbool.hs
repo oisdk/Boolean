@@ -45,15 +45,17 @@ minTermsTrue :: Expr -> S.Set (M.Map Char Bool)
 minTermsTrue e = S.filter (subInSet e) (minTerms e)
 
 mapMaybeSet :: Ord b => (a -> Maybe b) -> S.Set a -> S.Set b
-mapMaybeSet f = (S.map fromJust) . (S.filter isJust) . (S.map f)
+mapMaybeSet f = S.foldr ff S.empty
+  where ff e a = case f e of Nothing -> a
+                             Just x -> S.insert x a
 
 tryInsert :: S.Set (M.Map Char Bool) -> M.Map Char Bool -> S.Set (M.Map Char Bool)
 tryInsert l o | S.null inserted = S.singleton o
               | otherwise       = inserted
-  where inserted = mapMaybeSet ifTry l
-        ifTry b | M.size diff == 1 = Just (M.difference o diff)
-                | otherwise        = Nothing
-                where diff = symDiff const o b
+  where inserted = mapMaybeSet tryMerge l
+        tryMerge b | M.size diff == 1 = Just (M.difference o diff)
+                   | otherwise        = Nothing
+                   where diff = symDiff const o b
 
 minOnce :: S.Set (M.Map Char Bool) -> S.Set (M.Map Char Bool)
 minOnce l = S.foldr S.union S.empty (S.map (tryInsert l) l)
@@ -82,14 +84,12 @@ toExpr (c,False) = NOT (Var c)
 toAnd :: (M.Map Char Bool) -> Expr
 toAnd = fromMaybe (Const True)     . 
         fmap (uncurry (foldr AND)) . 
-        uncons                     . 
-        map toExpr                 . 
-        M.toList
+        uncons . map toExpr . M.toList
 
 toOr :: S.Set (M.Map Char Bool) -> Expr
-toOr s | S.null s = Const False
-       | otherwise = S.foldr OR h t
-       where (h,t) = S.deleteFindMin (S.map toAnd s)
+toOr = fromMaybe (Const False)     . 
+       fmap (uncurry $ S.foldr OR) . 
+       S.maxView . S.map toAnd
 
 simplified :: Expr -> Expr
 simplified = toOr . primeImpl
