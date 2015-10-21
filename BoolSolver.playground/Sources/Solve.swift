@@ -9,3 +9,21 @@ extension Expr {
     }
   }
 }
+
+func inserted<K : Hashable,V>(k: K, _ v: V)(var _ d: [K:V]) -> [K:V] {
+  d[k] = v
+  return d
+}
+
+public func powerSet<K : Hashable>(var s: Set<K>) -> [[K:Bool]] {
+  guard let k = s.popFirst() else { return [[:]] }
+  let rest = powerSet(s)
+  return rest.map(inserted(k, true)) + rest.map(inserted(k, false))
+}
+
+extension Expr {
+  var minTerms: [[String:Bool]] {
+    return powerSet(allVars)
+  }
+}
+

@@ -17,26 +17,6 @@ public func == (lhs: Expr, rhs: Expr) -> Bool {
   }
 }
 
-extension Dictionary {
-  init<S : SequenceType where S.Generator.Element == (Key,Value)>(seq: S) {
-    self = [:]
-    for (k,v) in seq { self[k] = v }
-  }
-}
+public func < (lhs: Bool, rhs: Bool) -> Bool { return lhs && !rhs }
+extension Bool : Comparable {}
 
-extension Expr {
-  public var simplified: Expr {
-    let terms = allVars.sort()
-    guard !terms.isEmpty else { return self }
-    let minterms = (0..<1<<terms.count).filter { i in
-      self.solve(
-        Dictionary(seq:
-          terms
-            .enumerate()
-            .map { (j,t) in (t, i & j > 0) }
-        )
-      )
-    }
-    
-  }
-}
