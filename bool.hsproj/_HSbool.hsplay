@@ -1,1 +1,7 @@
 -- Haskell Playground 1.0
+let a = Var 'A'
+let b = Var 'B'
+let c = Var 'C'
+let d = Var 'D'
+
+simplified $ (a `OR` c) `AND` ((a `AND` d) `OR` (a `AND` NOT d)) `OR` (a `AND` c) `OR` c
