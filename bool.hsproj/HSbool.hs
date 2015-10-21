@@ -23,9 +23,6 @@ subIn p (NOT   x) = NOT (subIn p x)
 subIn p (AND a b) = AND (subIn p a) (subIn p b)
 subIn p (OR  a b) = OR  (subIn p a) (subIn p b)
 
-subInAll :: Expr -> [(Char, Expr)] -> Expr
-subInAll = foldr subIn
-
 powerSet :: Ord a => (S.Set a) -> S.Set (M.Map a Bool)
 powerSet = S.foldr f (S.singleton M.empty) where 
   f e a = S.union (with True) (with False) where 
@@ -58,7 +55,7 @@ tryInsert l o | S.null inserted = S.singleton o
                    where diff = symDiff const o b
 
 minOnce :: S.Set (M.Map Char Bool) -> S.Set (M.Map Char Bool)
-minOnce l = S.foldr S.union S.empty (S.map (tryInsert l) l)
+minOnce = S.foldr S.union S.empty . (S.map =<< tryInsert)
 
 converge :: Eq a => (a -> a) -> a -> a
 converge f x | x == y    = y
