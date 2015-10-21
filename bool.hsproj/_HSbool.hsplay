@@ -7,3 +7,11 @@ let d = Var 'D'
 let ex = (a `OR` c) `AND` ((a `AND` d) `OR` (a `AND` NOT d)) `OR` (a `AND` c) `OR` c
 
 
+simplified ex
+
+let p = Var 'P'
+let q = Var 'Q'
+
+simplified $ NOT (p `AND` (NOT q)) `OR` ((NOT p) `AND` q)
+
+simplified $ NOT (a `OR` b)

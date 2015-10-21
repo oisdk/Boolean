@@ -6,7 +6,31 @@ data Expr = Const Bool
           | Var Char
           | NOT Expr
           | AND Expr Expr
-          | OR  Expr Expr deriving (Eq, Show, Ord)
+          | OR  Expr Expr deriving (Eq, Ord)
+          
+prec :: Expr -> Int
+prec (Const _) = 8
+prec (Var   _) = 8
+prec (NOT   _) = 8
+prec (AND _ _) = 5
+prec (OR  _ _) = 3
+
+condBrack :: Int -> Expr -> String
+condBrack n e | prec e < n = "(" ++ show e ++ ")"
+              | otherwise  = show e
+
+instance Show Expr where
+  show (Const b)             = if b then "1" else "0"
+  show (Var   c)             = [c]
+  show (NOT   e)             = '!' : condBrack 8 e
+  show (AND (NOT l) (NOT r)) = condBrack 3 l ++ " NOR "  ++ condBrack 3 r
+  show (AND l r)             = condBrack 5 l ++ condBrack 5 r
+  show (OR (NOT l) (NOT r))  = condBrack 5 l ++ " NAND " ++ condBrack 5 r
+  show (OR (NOT l) r      )  = condBrack 2 l ++ " XNOR " ++ condBrack 2 r
+  show (OR l@(AND (NOT a) b) r@(AND (NOT c) d))
+    | a == d && b == c       = condBrack 2 a ++ " XOR "  ++ condBrack 2 b
+    | otherwise              = condBrack 3 l ++ " + "    ++ condBrack 3 r
+  show (OR  l r)             = condBrack 3 l ++ " + "    ++ condBrack 3 r
           
 allVars :: Expr -> S.Set Char
 allVars (Const _) = S.empty
@@ -86,7 +110,7 @@ toAnd = fromMaybe (Const True)     .
 toOr :: S.Set (M.Map Char Bool) -> Expr
 toOr = fromMaybe (Const False)     . 
        fmap (uncurry $ S.foldr OR) . 
-       S.maxView . S.map toAnd
+       S.minView . S.map toAnd
 
 simplified :: Expr -> Expr
 simplified = toOr . primeImpl
