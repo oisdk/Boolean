@@ -15,3 +15,5 @@ let q = Var 'Q'
 simplified $ NOT (p `AND` (NOT q)) `OR` ((NOT p) `AND` q)
 
 simplified $ NOT (a `OR` b)
+
+simplified $ xnor a b

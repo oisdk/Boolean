@@ -19,6 +19,18 @@ condBrack :: Int -> Expr -> String
 condBrack n e | prec e < n = "(" ++ show e ++ ")"
               | otherwise  = show e
 
+xor :: Expr -> Expr -> Expr
+xor a b = (NOT a `AND` b) `OR` (NOT b `AND` a)
+
+nand :: Expr -> Expr -> Expr
+nand a b = NOT a `OR` NOT b
+
+nor :: Expr -> Expr -> Expr
+nor a b = NOT a `AND` NOT b
+
+xnor :: Expr -> Expr -> Expr
+xnor a b = NOT a `OR` b
+
 instance Show Expr where
   show (Const b)             = if b then "1" else "0"
   show (Var   c)             = [c]
