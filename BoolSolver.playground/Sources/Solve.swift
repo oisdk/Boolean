@@ -25,5 +25,8 @@ extension Expr {
   var minTerms: [[String:Bool]] {
     return powerSet(allVars)
   }
+  var minTermsTrue: [[String:Bool]] {
+    return minTerms.filter(solve)
+  }
 }
 
