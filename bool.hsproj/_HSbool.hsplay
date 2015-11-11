@@ -1,19 +1,25 @@
 -- Haskell Playground 1.0
-let a = Var 'A'
-let b = Var 'B'
-let c = Var 'C'
-let d = Var 'D'
+--let a = Var 'A'
+--let b = Var 'B'
+--let c = Var 'C'
+--let d = Var 'D'
+--
+--let ex = (a `OR` c) `AND` ((a `AND` d) `OR` (a `AND` NOT d)) `OR` (a `AND` c) `OR` c
+--
+--
+--simplified ex
+--
+--let p = Var 'P'
+--let q = Var 'Q'
+--
+--simplified $ NOT (p `AND` (NOT q)) `OR` ((NOT p) `AND` q)
+--
+--simplified $ NOT (a `OR` b)
+--
+--simplified $ (NOT a) `AND` (NOT b) `AND` (NOT c)
+--
+--simplified $ xor (xor a b) c
+--
+--simplified $ (NOT a) `AND` ((b `AND` (NOT c)) `OR` (c `AND` (NOT b)))
 
-let ex = (a `OR` c) `AND` ((a `AND` d) `OR` (a `AND` NOT d)) `OR` (a `AND` c) `OR` c
-
-
-simplified ex
-
-let p = Var 'P'
-let q = Var 'Q'
-
-simplified $ NOT (p `AND` (NOT q)) `OR` ((NOT p) `AND` q)
-
-simplified $ NOT (a `OR` b)
-
-simplified $ xnor a b
+all

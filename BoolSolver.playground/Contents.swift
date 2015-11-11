@@ -1,1 +1,2 @@
-"A" && "B"
+let n = !("A" && "B" || "C" || "D")
+n.simplified
