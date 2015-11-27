@@ -1,0 +1,422 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		70B128461BF8CA7B001179D5 /* Bool.h in Headers */ = {isa = PBXBuildFile; fileRef = 70B128451BF8CA7B001179D5 /* Bool.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		70B1284D1BF8CA7B001179D5 /* Bool.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70B128421BF8CA7B001179D5 /* Bool.framework */; };
+		70B128521BF8CA7B001179D5 /* BoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B128511BF8CA7B001179D5 /* BoolTests.swift */; };
+		70B128621BF8CA85001179D5 /* Conformance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1285C1BF8CA85001179D5 /* Conformance.swift */; };
+		70B128631BF8CA85001179D5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1285D1BF8CA85001179D5 /* Extensions.swift */; };
+		70B128641BF8CA85001179D5 /* Factorise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1285E1BF8CA85001179D5 /* Factorise.swift */; };
+		70B128651BF8CA85001179D5 /* Initialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B1285F1BF8CA85001179D5 /* Initialization.swift */; };
+		70B128661BF8CA85001179D5 /* MinTerm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B128601BF8CA85001179D5 /* MinTerm.swift */; };
+		70B128671BF8CA85001179D5 /* Simple.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B128611BF8CA85001179D5 /* Simple.swift */; };
+		70B128691BF8CAA0001179D5 /* Randable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B128681BF8CAA0001179D5 /* Randable.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		70B1284E1BF8CA7B001179D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 70B128391BF8CA7B001179D5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 70B128411BF8CA7B001179D5;
+			remoteInfo = Bool;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		70B128421BF8CA7B001179D5 /* Bool.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Bool.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B128451BF8CA7B001179D5 /* Bool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bool.h; sourceTree = "<group>"; };
+		70B128471BF8CA7B001179D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70B1284C1BF8CA7B001179D5 /* BoolTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BoolTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70B128511BF8CA7B001179D5 /* BoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoolTests.swift; sourceTree = "<group>"; };
+		70B128531BF8CA7B001179D5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70B1285C1BF8CA85001179D5 /* Conformance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Conformance.swift; sourceTree = "<group>"; };
+		70B1285D1BF8CA85001179D5 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		70B1285E1BF8CA85001179D5 /* Factorise.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Factorise.swift; sourceTree = "<group>"; };
+		70B1285F1BF8CA85001179D5 /* Initialization.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Initialization.swift; sourceTree = "<group>"; };
+		70B128601BF8CA85001179D5 /* MinTerm.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MinTerm.swift; sourceTree = "<group>"; };
+		70B128611BF8CA85001179D5 /* Simple.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Simple.swift; sourceTree = "<group>"; };
+		70B128681BF8CAA0001179D5 /* Randable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Randable.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		70B1283E1BF8CA7B001179D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B128491BF8CA7B001179D5 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B1284D1BF8CA7B001179D5 /* Bool.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		70B128381BF8CA7B001179D5 = {
+			isa = PBXGroup;
+			children = (
+				70B128441BF8CA7B001179D5 /* Bool */,
+				70B128501BF8CA7B001179D5 /* BoolTests */,
+				70B128431BF8CA7B001179D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		70B128431BF8CA7B001179D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				70B128421BF8CA7B001179D5 /* Bool.framework */,
+				70B1284C1BF8CA7B001179D5 /* BoolTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		70B128441BF8CA7B001179D5 /* Bool */ = {
+			isa = PBXGroup;
+			children = (
+				70B1285C1BF8CA85001179D5 /* Conformance.swift */,
+				70B1285D1BF8CA85001179D5 /* Extensions.swift */,
+				70B1285E1BF8CA85001179D5 /* Factorise.swift */,
+				70B1285F1BF8CA85001179D5 /* Initialization.swift */,
+				70B128601BF8CA85001179D5 /* MinTerm.swift */,
+				70B128611BF8CA85001179D5 /* Simple.swift */,
+				70B128451BF8CA7B001179D5 /* Bool.h */,
+				70B128471BF8CA7B001179D5 /* Info.plist */,
+			);
+			path = Bool;
+			sourceTree = "<group>";
+		};
+		70B128501BF8CA7B001179D5 /* BoolTests */ = {
+			isa = PBXGroup;
+			children = (
+				70B128511BF8CA7B001179D5 /* BoolTests.swift */,
+				70B128681BF8CAA0001179D5 /* Randable.swift */,
+				70B128531BF8CA7B001179D5 /* Info.plist */,
+			);
+			path = BoolTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		70B1283F1BF8CA7B001179D5 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B128461BF8CA7B001179D5 /* Bool.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		70B128411BF8CA7B001179D5 /* Bool */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B128561BF8CA7B001179D5 /* Build configuration list for PBXNativeTarget "Bool" */;
+			buildPhases = (
+				70B1283D1BF8CA7B001179D5 /* Sources */,
+				70B1283E1BF8CA7B001179D5 /* Frameworks */,
+				70B1283F1BF8CA7B001179D5 /* Headers */,
+				70B128401BF8CA7B001179D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Bool;
+			productName = Bool;
+			productReference = 70B128421BF8CA7B001179D5 /* Bool.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		70B1284B1BF8CA7B001179D5 /* BoolTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 70B128591BF8CA7B001179D5 /* Build configuration list for PBXNativeTarget "BoolTests" */;
+			buildPhases = (
+				70B128481BF8CA7B001179D5 /* Sources */,
+				70B128491BF8CA7B001179D5 /* Frameworks */,
+				70B1284A1BF8CA7B001179D5 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				70B1284F1BF8CA7B001179D5 /* PBXTargetDependency */,
+			);
+			name = BoolTests;
+			productName = BoolTests;
+			productReference = 70B1284C1BF8CA7B001179D5 /* BoolTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		70B128391BF8CA7B001179D5 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Donnacha Oisín Kidney";
+				TargetAttributes = {
+					70B128411BF8CA7B001179D5 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+					70B1284B1BF8CA7B001179D5 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 70B1283C1BF8CA7B001179D5 /* Build configuration list for PBXProject "Bool" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 70B128381BF8CA7B001179D5;
+			productRefGroup = 70B128431BF8CA7B001179D5 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				70B128411BF8CA7B001179D5 /* Bool */,
+				70B1284B1BF8CA7B001179D5 /* BoolTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		70B128401BF8CA7B001179D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B1284A1BF8CA7B001179D5 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		70B1283D1BF8CA7B001179D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B128641BF8CA85001179D5 /* Factorise.swift in Sources */,
+				70B128621BF8CA85001179D5 /* Conformance.swift in Sources */,
+				70B128631BF8CA85001179D5 /* Extensions.swift in Sources */,
+				70B128661BF8CA85001179D5 /* MinTerm.swift in Sources */,
+				70B128651BF8CA85001179D5 /* Initialization.swift in Sources */,
+				70B128671BF8CA85001179D5 /* Simple.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		70B128481BF8CA7B001179D5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				70B128691BF8CAA0001179D5 /* Randable.swift in Sources */,
+				70B128521BF8CA7B001179D5 /* BoolTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		70B1284F1BF8CA7B001179D5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 70B128411BF8CA7B001179D5 /* Bool */;
+			targetProxy = 70B1284E1BF8CA7B001179D5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		70B128541BF8CA7B001179D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		70B128551BF8CA7B001179D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "-";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.11;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = macosx;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		70B128571BF8CA7B001179D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Bool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = donnacha.oisin.kidney.Bool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		70B128581BF8CA7B001179D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
+				INFOPLIST_FILE = Bool/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = donnacha.oisin.kidney.Bool;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		70B1285A1BF8CA7B001179D5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BoolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = donnacha.oisin.kidney.BoolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		70B1285B1BF8CA7B001179D5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				INFOPLIST_FILE = BoolTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = donnacha.oisin.kidney.BoolTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		70B1283C1BF8CA7B001179D5 /* Build configuration list for PBXProject "Bool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70B128541BF8CA7B001179D5 /* Debug */,
+				70B128551BF8CA7B001179D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		70B128561BF8CA7B001179D5 /* Build configuration list for PBXNativeTarget "Bool" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70B128571BF8CA7B001179D5 /* Debug */,
+				70B128581BF8CA7B001179D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		70B128591BF8CA7B001179D5 /* Build configuration list for PBXNativeTarget "BoolTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				70B1285A1BF8CA7B001179D5 /* Debug */,
+				70B1285B1BF8CA7B001179D5 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 70B128391BF8CA7B001179D5 /* Project object */;
+}
